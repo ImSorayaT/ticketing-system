@@ -20,6 +20,7 @@ class TicketsFactory extends Factory
             'title' => Str::random(10),
             'status' => 1,
             'assigner' => 1,
+            'priority' => 1,
             'request_content' => '',            
         ];
     }
