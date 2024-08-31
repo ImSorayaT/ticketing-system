@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->integer('status');
             $table->integer('assigner');
-            $table->string('request_content');
+            $table->longText('request_content');
             $table->timestamps();
         });
     }
