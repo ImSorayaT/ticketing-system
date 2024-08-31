@@ -17,7 +17,10 @@ class TicketsFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => Str::random(10),
+            'status' => 1,
+            'assigner' => 1,
+            'request_content' => '',            
         ];
     }
 }
