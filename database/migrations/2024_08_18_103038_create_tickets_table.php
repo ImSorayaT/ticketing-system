@@ -15,8 +15,8 @@ return new class extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->foreignIdFor(TicketsStatus::class);
-            $table->integer('priority');
+            $table->enum('status', ['open', 'pending', 'closed']);
+            $table->enum('priority', ['urgent', 'high', 'medium', 'low']);;
             $table->integer('assigner');
             $table->longText('request_content');
             $table->timestamps();

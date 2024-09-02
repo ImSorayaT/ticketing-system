@@ -17,7 +17,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             TicketsSeeder::class,
-            TicketsStatusSeeder::class
         ]);
 
         User::factory()->create([
