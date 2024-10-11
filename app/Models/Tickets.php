@@ -14,6 +14,7 @@ class Tickets extends Model
         'status',
         'priority',
         'assigner',
+        'assignee',
         'request_content',
         'updated_at'
     ];

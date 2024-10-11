@@ -17,6 +17,8 @@ class ListTickets extends Component
             return [
                 'id' => $ticket->id,
                 'title' => $ticket->title,
+                'status' => $ticket->status,
+                'priority' => $ticket->priority,
                 'assigner' => [
                     'name' => $assigner->name,
                 ],
