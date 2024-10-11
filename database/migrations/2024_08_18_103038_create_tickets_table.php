@@ -18,6 +18,7 @@ return new class extends Migration
             $table->enum('status', ['open', 'pending', 'closed']);
             $table->enum('priority', ['urgent', 'high', 'medium', 'low']);;
             $table->integer('assigner');
+            $table->integer('assignee');
             $table->longText('request_content');
             $table->timestamps();
         });
