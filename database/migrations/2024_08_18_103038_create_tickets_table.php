@@ -4,6 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Models\TicketsStatus;
+use App\Enum\TicketStatus;
 
 return new class extends Migration
 {
@@ -15,7 +16,7 @@ return new class extends Migration
         Schema::create('tickets', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->enum('status', ['open', 'pending', 'closed']);
+            $table->enum('status', array_column(TicketStatus::cases(), 'value'))->default(TicketStatus::Open->value);
             $table->enum('priority', ['urgent', 'high', 'medium', 'low']);;
             $table->integer('assigner')->unsigned();
             $table->foreign('assigner')->references('id')->on('users'); 
