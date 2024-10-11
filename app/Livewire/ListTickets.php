@@ -4,6 +4,7 @@ namespace App\Livewire;
 
 use Livewire\Component;
 use App\Models\Tickets;
+use App\Models\User;
 
 class ListTickets extends Component
 {
@@ -11,9 +12,13 @@ class ListTickets extends Component
     {
 
         $tickets = Tickets::get()->map( function($ticket){
+            $assigner = User::find($ticket->assigner);
             return [
-                'id'=> $ticket->id,
-                'title'=> $ticket->title,
+                'id' => $ticket->id,
+                'title' => $ticket->title,
+                'assigner' => [
+                    'name' => $assigner->name,
+                ]
             ];
         });
         // dd($tickets);

@@ -1,7 +1,8 @@
 <ul>
     @foreach( $tickets as $ticket)
        <li>
-            {{$ticket['title']}}
+            <span>{{$ticket['title']}}</span>
+            <span>{{$ticket['assigner']['name']}}</span>
         </li>
     @endforeach
 </div>
