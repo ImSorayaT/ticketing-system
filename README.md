@@ -7,6 +7,13 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Set up 
+You don't need to use an external local host, it's all taken care of by vite!
+- run ```composer install``` + ```npm install```
+- copy the env.example file and change the name to .env
+- run php ```artisan key:generate```
+- run php ```artisan migrate``` + ```php artisan serve``` . It'll ask to create a new .sqlite file. Do it!
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
