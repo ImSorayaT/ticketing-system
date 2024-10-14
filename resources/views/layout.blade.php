@@ -14,6 +14,7 @@
      
     </head>
     <body>
-        <livewire:list-tickets>       
+        @include('navigation')
+        @yield('content')
     </body>
 </html>
