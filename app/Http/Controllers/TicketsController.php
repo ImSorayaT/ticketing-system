@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreTicketsRequest;
 use App\Http\Requests\UpdateTicketsRequest;
 use App\Models\Tickets;
+use App\Models\User;
+
 
 class TicketsController extends Controller
 {
@@ -37,7 +39,26 @@ class TicketsController extends Controller
      */
     public function show(Tickets $tickets)
     {
-        //
+
+        $tickets = Tickets::get()->map( function($ticket){
+            $assigner = User::find($ticket->assigner);
+            $assignee = User::find($ticket->assignee);
+            return [
+                'id' => $ticket->id,
+                'title' => $ticket->title,
+                'status' => $ticket->status,
+                'priority' => $ticket->priority,
+                'assigner' => [
+                    'name' => $assigner->name,
+                ],
+                'assignee' => [
+                    'name' => $assignee->name,
+                ]
+            ];
+        });
+
+    
+        return $tickets;
     }
 
     /**
