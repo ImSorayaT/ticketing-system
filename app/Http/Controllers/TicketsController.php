@@ -37,7 +37,7 @@ class TicketsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Tickets $tickets)
+    public static function showList()
     {
 
         $tickets = Tickets::get()->map( function($ticket){
