@@ -13,9 +13,9 @@
 
      
     </head>
-    <body class="bg-[#2b2e2f] text-white  ">
+    <body class="bg-unit-soft-black text-white  ">
         <div class="min-h-screen flex ">
-            <div class="basis-96 bg-unit-soft-black p-6">
+            <div class="basis-80 bg-[#2b2e2f]  p-6">
                 @include('navigation')
             </div>
             <div class="basis-auto grow p-6">
