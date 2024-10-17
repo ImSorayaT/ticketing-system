@@ -1,5 +1,5 @@
 <ul >
-    <li class=" odd:bg-[#fca5a5]"">
+    <li class=""">
         <div class="max-w-screen-xl mx-auto grid grid-cols-5 gap-4">
             <span class=" p-2">Title</span>
             <span class="p-2">Status</span>
@@ -9,7 +9,7 @@
         </div>
     </li>
     @foreach( $tickets as $ticket)
-       <li class=" odd:bg-[#fca5a5] "">
+       <li class=" even:bg-unit-soft-black "">
             <div class="max-w-screen-xl mx-auto grid grid-cols-5 gap-4">
                 <a href="/ticket/{{$ticket['id']}}" class=" p-2 capitalize">{{$ticket['title']}}</a>
                 <a href="/ticket/{{$ticket['id']}}" class=" p-2 uppercase font-bold">{{$ticket['status']}}</a>

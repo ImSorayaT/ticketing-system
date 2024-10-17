@@ -13,7 +13,7 @@
 
      
     </head>
-    <body>
+    <body class="bg-[#2b2e2f] text-white">
         @include('navigation')
         @yield('content')
     </body>
