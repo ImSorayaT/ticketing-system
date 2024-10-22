@@ -5,3 +5,4 @@ use App\Http\Controllers\TicketsController;
 
 
 Route::get('/tickets', [TicketsController::class, 'showList']);
+Route::get('/tickets/add', [TicketsController::class, 'addTicketFromEmail']);

@@ -21,7 +21,7 @@ return new class extends Migration
             $table->enum('priority', array_column(TicketPriority::cases(), 'value'))->default(TicketPriority::Medium->value);
             $table->integer('assigner')->unsigned();
             $table->foreign('assigner')->references('id')->on('users'); 
-            $table->integer('assignee')->unsigned();
+            $table->integer('assignee')->unsigned()->nullable();
             $table->foreign('assignee')->references('id')->on('users'); 
             $table->longText('request_content');
             $table->timestamps();

@@ -22,5 +22,5 @@
         <p class="flex gap-4"><span class="basis-16 ">Assignee:</span> {{ $ticketArray['assignee']['name']}}</p>
     </form>
 
-    <p> {{ $ticketArray['content']}}</p>
+    {!! html_entity_decode($ticketArray['content']) !!}
 </div>

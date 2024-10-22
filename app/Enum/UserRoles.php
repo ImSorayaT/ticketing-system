@@ -8,5 +8,5 @@ enum UserRoles: string
     case Editor = 'editor';
     case Support = 'support';
     case Client = 'client';
-
+    case Inactive = 'inactive';
 }

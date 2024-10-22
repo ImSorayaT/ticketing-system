@@ -48,7 +48,7 @@ class SingleTicket extends Component
                     'name' => $assigner->name,
                 ],
                 'assignee' => [
-                    'name' => $assignee->name,
+                    'name' => ($assignee) ? $assignee->name : '',
                 ]
             
         ];

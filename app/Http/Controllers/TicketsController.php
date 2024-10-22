@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreTicketsRequest;
 use App\Http\Requests\UpdateTicketsRequest;
 use App\Models\Tickets;
 use App\Models\User;
+use App\Enum\UserRoles;
 
 
 class TicketsController extends Controller
@@ -52,13 +54,43 @@ class TicketsController extends Controller
                     'name' => $assigner->name,
                 ],
                 'assignee' => [
-                    'name' => $assignee->name,
+                    'name' => ($assignee) ? $assignee->name : '' ,
                 ]
             ];
         });
 
     
         return $tickets;
+    }
+
+    public static function addTicketFromEmail(Request $request){
+        $email = [
+            'title' => $request->input('title'),
+            'content' => urldecode($request->input('content')),
+            'threadId' => $request->input('threadId') ? : null,
+            'emailSender' => $request->input('emailSender'),
+        ];
+
+        $user = User::where('email', $email['emailSender'])->first();
+        if(!$user){
+            $user = User::create(
+                [
+                    'name' => $email['emailSender'],
+                    'email' => $email['emailSender'],
+                    'user_role' => UserRoles::Inactive->value,
+                ]
+            );
+        }
+
+        Tickets::create(
+            [
+                'title' => $email['title'],
+                'assigner' => $user->id,
+                'request_content' => $email['content'],
+            ]
+        );
+
+        return $email;
     }
 
     /**
