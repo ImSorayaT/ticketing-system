@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateTicketsRequest;
 use App\Models\Tickets;
 use App\Models\User;
 use App\Enum\UserRoles;
+use App\Notifications\TicketCreated;
 
 
 class TicketsController extends Controller
@@ -89,6 +90,8 @@ class TicketsController extends Controller
                 'request_content' => $email['content'],
             ]
         );
+
+        $user->notify(new TicketCreated());
 
         return $email;
     }
