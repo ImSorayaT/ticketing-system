@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Messages;
 
 class Tickets extends Model
 {
@@ -19,5 +20,10 @@ class Tickets extends Model
         'threadId',
         'updated_at'
     ];
+
+    public function messages(): HasMany
+    {
+        return $this->hasMany(Messages::class);
+    }
 
 }
