@@ -35,7 +35,7 @@ class SingleTicket extends Component
     public function render()
     {
         $ticket = $this->ticket;
-        $assigner = User::find($ticket->assigner);
+        $requester = User::find($ticket->requester);
         $assignee = User::find($ticket->assignee);
 
         $ticketArray = [
@@ -44,8 +44,8 @@ class SingleTicket extends Component
                 'status' => $ticket->status,
                 'priority' => $ticket->priority,
                 'content' => $ticket->request_content,
-                'assigner' => [
-                    'name' => $assigner->name,
+                'requester' => [
+                    'name' => $requester->name,
                 ],
                 'assignee' => [
                     'name' => ($assignee) ? $assignee->name : '',

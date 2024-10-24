@@ -44,15 +44,15 @@ class TicketsController extends Controller
     {
 
         $tickets = Tickets::get()->map( function($ticket){
-            $assigner = User::find($ticket->assigner);
+            $requester = User::find($ticket->requester);
             $assignee = User::find($ticket->assignee);
             return [
                 'id' => $ticket->id,
                 'title' => $ticket->title,
                 'status' => $ticket->status,
                 'priority' => $ticket->priority,
-                'assigner' => [
-                    'name' => $assigner->name,
+                'requester' => [
+                    'name' => $requester->name,
                 ],
                 'assignee' => [
                     'name' => ($assignee) ? $assignee->name : '' ,
@@ -86,7 +86,7 @@ class TicketsController extends Controller
         Tickets::create(
             [
                 'title' => $email['title'],
-                'assigner' => $user->id,
+                'requester' => $user->id,
                 'request_content' => $email['content'],
             ]
         );

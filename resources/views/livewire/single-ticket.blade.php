@@ -18,7 +18,7 @@
                 @endforeach
             </select>
         </p>
-        <p class="flex gap-4"><span class="basis-16 ">Assigner:</span> {{ $ticketArray['assigner']['name']}}</p>
+        <p class="flex gap-4"><span class="basis-16 ">Requester:</span> {{ $ticketArray['requester']['name']}}</p>
         <p class="flex gap-4"><span class="basis-16 ">Assignee:</span> {{ $ticketArray['assignee']['name']}}</p>
     </form>
 

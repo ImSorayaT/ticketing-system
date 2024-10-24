@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('title');
             $table->enum('status', array_column(TicketStatus::cases(), 'value'))->default(TicketStatus::Open->value);
             $table->enum('priority', array_column(TicketPriority::cases(), 'value'))->default(TicketPriority::Medium->value);
-            $table->integer('assigner')->unsigned();
-            $table->foreign('assigner')->references('id')->on('users'); 
+            $table->integer('requester')->unsigned();
+            $table->foreign('requester')->references('id')->on('users'); 
             $table->integer('assignee')->unsigned()->nullable();
             $table->foreign('assignee')->references('id')->on('users'); 
             $table->longText('request_content');
