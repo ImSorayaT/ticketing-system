@@ -65,31 +65,27 @@ class TicketsController extends Controller
     }
 
     public static function addTicketFromEmail(Request $request){
-        $email = [
-            'title' => $request->input('title'),
-            'content' => urldecode($request->input('content')),
-            'threadId' => $request->input('threadId') ? : null,
-            'emailSender' => $request->input('emailSender'),
-        ];
-
-        $user = User::where('email', $email['emailSender'])->first();
+        $emailSender = $request->input('emailSender');
+        $user = User::where('email', $emailSender)->first();
         if(!$user){
             $user = User::create(
                 [
-                    'name' => $email['emailSender'],
-                    'email' => $email['emailSender'],
+                    'name' => $emailSender,
+                    'email' => $emailSender,
                     'user_role' => UserRoles::Inactive->value,
                 ]
             );
         }
 
-        Tickets::create(
-            [
-                'title' => $email['title'],
-                'requester' => $user->id,
-                'request_content' => $email['content'],
-            ]
-        );
+        $email = [
+            'title' => $request->input('title'),
+            'requester' => $user->id,
+            'request_content' => urldecode($request->input('content')),
+            'threadId' => $request->input('threadId'),
+        ];
+
+// dd($email);
+        Tickets::create($email);
 
         $user->notify(new TicketCreated());
 

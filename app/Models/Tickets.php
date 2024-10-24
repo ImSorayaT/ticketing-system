@@ -16,6 +16,7 @@ class Tickets extends Model
         'requester',
         'assignee',
         'request_content',
+        'threadId',
         'updated_at'
     ];
 
