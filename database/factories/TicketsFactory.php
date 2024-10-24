@@ -18,13 +18,19 @@ class TicketsFactory extends Factory
      */
     public function definition(): array
     {
+        $content= '';
+        $paragraphs = fake()->paragraphs(3);
+        foreach ($paragraphs as $para) {
+            $content .= "<p>{$para}</p>";
+        }
+    
         return [
             'title' => implode(' ', fake()->words(fake()->numberBetween(3, 7))),
             'status' => fake()->randomElement(['open', 'pending', 'closed']),
             'requester' => 1,
             'assignee' => fake()->randomElement([2,3,4]),
             'priority' => fake()->randomElement(['urgent', 'high', 'medium', 'low']),
-            'request_content' => implode("\n\n", fake()->paragraphs(3)),
+            'request_content' => $content,
             'threadId' => Str::random(10),
             'created_at' => now()
         ];

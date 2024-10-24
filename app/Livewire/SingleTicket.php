@@ -40,6 +40,7 @@ class SingleTicket extends Component
 
         $ticketArray = [
                 'id' => $ticket->id,
+                'threadId' => $ticket->threadId,
                 'title' => $ticket->title,
                 'status' => $ticket->status,
                 'priority' => $ticket->priority,

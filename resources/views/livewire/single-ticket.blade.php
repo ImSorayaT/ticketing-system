@@ -23,4 +23,5 @@
     </form>
 
     {!! html_entity_decode($ticketArray['content']) !!}
+    <livewire:create-message :threadId=" $ticketArray['threadId']" >
 </div>
