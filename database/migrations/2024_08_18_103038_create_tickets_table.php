@@ -24,6 +24,7 @@ return new class extends Migration
             $table->integer('assignee')->unsigned()->nullable();
             $table->foreign('assignee')->references('id')->on('users'); 
             $table->longText('request_content');
+            $table->string('threadId');
             $table->timestamps();
         });
     }

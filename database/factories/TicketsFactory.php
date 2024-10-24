@@ -25,6 +25,7 @@ class TicketsFactory extends Factory
             'assignee' => fake()->randomElement([2,3,4]),
             'priority' => fake()->randomElement(['urgent', 'high', 'medium', 'low']),
             'request_content' => implode("\n\n", fake()->paragraphs(3)),
+            'threadId' => Str::random(10),
             'created_at' => now()
         ];
     }
