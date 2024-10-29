@@ -43,19 +43,17 @@ class TicketsController extends Controller
     public static function showList()
     {
 
-        $tickets = Tickets::get()->map( function($ticket){
-            $requester = User::find($ticket->requester);
-            $assignee = User::find($ticket->assignee);
+        $tickets = Tickets::get()->with(['getRequester', 'getAssignee'])->map( function($ticket){
             return [
                 'id' => $ticket->id,
                 'title' => $ticket->title,
                 'status' => $ticket->status,
                 'priority' => $ticket->priority,
                 'requester' => [
-                    'name' => $requester->name,
+                    'name' => $ticket->getRequester->name,
                 ],
                 'assignee' => [
-                    'name' => ($assignee) ? $assignee->name : '' ,
+                    'name' => ($assignee) ? $ticket->getAssignee->name : '' ,
                 ]
             ];
         });

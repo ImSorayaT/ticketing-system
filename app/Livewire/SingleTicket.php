@@ -18,7 +18,7 @@ class SingleTicket extends Component
     public function mount($id)
     {
         $this->id = $id;
-        $this->ticket = Tickets::findOrFail($id);
+        $this->ticket = Tickets::with(['getRequester', 'getAssignee', 'messages'])->findOrFail($id);
         $this->ticketStatus = $this->ticket->status;
         $this->ticketPriority = $this->ticket->priority;
     }
@@ -35,9 +35,6 @@ class SingleTicket extends Component
     public function render()
     {
         $ticket = $this->ticket;
-        $requester = User::find($ticket->requester);
-        $assignee = User::find($ticket->assignee);
-
         $ticketArray = [
                 'id' => $ticket->id,
                 'threadId' => $ticket->threadId,
@@ -45,11 +42,12 @@ class SingleTicket extends Component
                 'status' => $ticket->status,
                 'priority' => $ticket->priority,
                 'content' => $ticket->request_content,
+                'messages' => $ticket->messages,
                 'requester' => [
-                    'name' => $requester->name,
+                    'name' => $ticket->getRequester->name,
                 ],
                 'assignee' => [
-                    'name' => ($assignee) ? $assignee->name : '',
+                    'name' => ($ticket->assignee) ? $ticket->getRequester->name : '',
                 ]
             
         ];

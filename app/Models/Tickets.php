@@ -4,7 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\hasMany;
 use App\Models\Messages;
+use App\Models\User;
 
 class Tickets extends Model
 {
@@ -23,7 +26,19 @@ class Tickets extends Model
 
     public function messages(): HasMany
     {
-        return $this->hasMany(Messages::class);
+        return $this->hasMany(Messages::class, 'threadId');
+    }
+
+    public function getRequester(): BelongsTo
+    {
+        return $this->BelongsTo(User::class, 'requester', 'id');
+
+    }
+
+    public function getAssignee(): BelongsTo
+    {
+        return $this->BelongsTo(User::class);
+
     }
 
 }
