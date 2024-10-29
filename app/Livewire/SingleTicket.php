@@ -18,7 +18,7 @@ class SingleTicket extends Component
     public function mount($id)
     {
         $this->id = $id;
-        $this->ticket = Tickets::with(['getRequester', 'getAssignee', 'messages'])->findOrFail($id);
+        $this->ticket = Tickets::with(['getRequester', 'getAssignee', 'messages.user'])->findOrFail($id);
         $this->ticketStatus = $this->ticket->status;
         $this->ticketPriority = $this->ticket->priority;
     }
