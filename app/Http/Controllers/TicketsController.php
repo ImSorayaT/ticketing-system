@@ -43,7 +43,7 @@ class TicketsController extends Controller
     public static function showList()
     {
 
-        $tickets = Tickets::get()->with(['getRequester', 'getAssignee'])->map( function($ticket){
+        $tickets = Tickets::with(['getRequester', 'getAssignee'])->get()->map( function($ticket){
             return [
                 'id' => $ticket->id,
                 'title' => $ticket->title,
@@ -53,7 +53,7 @@ class TicketsController extends Controller
                     'name' => $ticket->getRequester->name,
                 ],
                 'assignee' => [
-                    'name' => ($assignee) ? $ticket->getAssignee->name : '' ,
+                    'name' => ($ticket->getAssignee) ? $ticket->getAssignee->name : '' ,
                 ]
             ];
         });
