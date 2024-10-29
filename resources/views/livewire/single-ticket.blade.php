@@ -23,5 +23,8 @@
     </form>
 
     {!! html_entity_decode($ticketArray['content']) !!}
-    <livewire:create-message :threadId=" $ticketArray['threadId']" >
+    
+    <livewire:list-ticket-messages :Id=" $ticketArray['id']" >
+    <livewire:create-message :threadId=" $ticketArray['id']" >
+    
 </div>

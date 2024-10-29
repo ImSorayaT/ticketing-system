@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('tickets_messages', function (Blueprint $table) {
             $table->id();
             $table->string('threadId')->unsigned()->nullable();
-            $table->foreign('threadId')->references('threadId')->on('tickets'); 
+            $table->foreign('threadId')->references('id')->on('tickets'); 
             $table->integer('from')->unsigned()->nullable();
             $table->foreign('from')->references('id')->on('users'); 
-            $table->string('title');
+            $table->string('title')->nullable();
             $table->longText('content');
             $table->timestamps();
         });
