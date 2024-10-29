@@ -15,9 +15,11 @@
     </head>
     <body class="bg-unit-soft-black text-white  ">
         <div class="min-h-screen flex ">
-            <div class="basis-80 bg-[#2b2e2f]  p-6">
-                @include('navigation')
-            </div>
+            @auth()
+                <div class="basis-80 bg-[#2b2e2f]  p-6">
+                    @include('navigation')
+                </div>
+            @endauth
             <div class="basis-auto grow p-6">
                 @yield('content')
             </div>

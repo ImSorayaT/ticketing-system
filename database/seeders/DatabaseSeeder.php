@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Admin User',
                 'email' => 'admin@example.com',
+                'password' => 'test',
                 'user_role' => UserRoles::Admin->value
             ]
         );
