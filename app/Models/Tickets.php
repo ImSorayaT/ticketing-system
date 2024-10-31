@@ -37,7 +37,7 @@ class Tickets extends Model
 
     public function getAssignee(): BelongsTo
     {
-        return $this->BelongsTo(User::class);
+        return $this->BelongsTo(User::class, 'assignee', 'id');
 
     }
 
