@@ -20,15 +20,24 @@ class CreateMessage extends Component
         $user = Auth::user();
         // $ticket = Tickets::where('id');
 
-        $this->from = $user->id;
+        $this->from = 2;
         
-        Messages::create(
+        // $this->form->createMessage();
+        
+        
+       $createMessage =  Messages::create(
             [
                 'threadId' => $this->threadId,
                 'from' => $this->from,
                 'content' => $this->content,
             ]
         );
+
+        $this->dispatch('addComment', $createMessage->id);
+        $this->content = '';
+
+        session()->flash('message', 'Message sent.');
+
     }
 
     public function render()

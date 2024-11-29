@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use Livewire\Attributes\On;
 use App\Models\Tickets;
 use App\Models\User;
 use App\Http\Requests\UpdateTicketsRequest;

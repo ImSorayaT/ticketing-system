@@ -24,7 +24,7 @@
 
     {!! html_entity_decode($ticketArray['content']) !!}
     
-    <livewire:list-ticket-messages :messages=" $ticketArray['messages']" >
-    <livewire:create-message :threadId=" $ticketArray['id']" >
+    <livewire:list-ticket-messages :messages="$ticketArray['messages']" >
+    <livewire:create-message :threadId="$ticketArray['id']" >
     
 </div>
