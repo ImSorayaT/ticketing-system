@@ -11,11 +11,11 @@
     @foreach( $tickets as $ticket)
        <li class=" even:bg-[#3e3735] "">
             <div class=" mx-auto flex">
-                <a href="/ticket/{{$ticket['id']}}" class=" p-2 capitalize basis-[900px] shrink">{{$ticket['title']}}</a>
-                <a href="/ticket/{{$ticket['id']}}" class=" p-2 uppercase font-bold basis-36 ">{{$ticket['status']}}</a>
-                <a href="/ticket/{{$ticket['id']}}" class="p-2 uppercase font-bold basis-36 ">{{$ticket['priority']}}</a>
-                <a href="/ticket/{{$ticket['id']}}" class="p-2 basis-36 ">{{$ticket['requester']['name']}}</a>
-                <a href="/ticket/{{$ticket['id']}}" class="p-2 basis-36 ">{{$ticket['assignee']['name']}}</a>
+                <a href="/ticket/{{$ticket}}" class=" p-2 capitalize basis-[900px] shrink">{{$ticket->title}}</a>
+                <a href="/ticket/{{$ticket->id}}" class=" p-2 uppercase font-bold basis-36 ">{{$ticket->status}}</a>
+                <a href="/ticket/{{$ticket->id}}" class="p-2 uppercase font-bold basis-36 ">{{$ticket->priority}}</a>
+                <a href="/ticket/{{$ticket->id}}" class="p-2 basis-36 ">{{$ticket->getRequester->name}}</a>
+                <a href="/ticket/{{$ticket->id}}" class="p-2 basis-36 ">{{$ticket->getAssignee->name ?? 'Unassigned'}}</a>
             </div>
         </li>
     @endforeach

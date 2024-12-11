@@ -43,22 +43,7 @@ class TicketsController extends Controller
     public static function showList()
     {
 
-        $tickets = Tickets::with(['getRequester', 'getAssignee'])->get()->map( function($ticket){
-            return [
-                'id' => $ticket->id,
-                'title' => $ticket->title,
-                'status' => $ticket->status,
-                'priority' => $ticket->priority,
-                'requester' => [
-                    'name' => $ticket->getRequester->name,
-                ],
-                'assignee' => [
-                    'name' => ($ticket->getAssignee) ? $ticket->getAssignee->name : '' ,
-                ]
-            ];
-        });
-
-    
+        $tickets = Tickets::with(['getRequester', 'getAssignee'])->get();
         return $tickets;
     }
 
@@ -82,7 +67,6 @@ class TicketsController extends Controller
             'threadId' => $request->input('threadId'),
         ];
 
-// dd($email);
         Tickets::create($email);
 
         $user->notify(new TicketCreated());

@@ -10,6 +10,10 @@ Route::middleware('auth', 'isLoggedIn')->group(function () {
     Route::get('/ticket/{id}', function ($id) {
         return view('singleTicket', compact("id"));
     });
+
+    Route::get('/assignee/{assigneeid}', function ($assigneeid) {
+        return view('ticketsByAssignee', compact("assigneeid"));
+    });
 });
 
 require __DIR__.'/auth.php';
