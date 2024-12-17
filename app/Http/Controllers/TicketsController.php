@@ -44,6 +44,12 @@ class TicketsController extends Controller
     {
 
         $tickets = Tickets::with(['getRequester', 'getAssignee'])->get()->groupBy('getAssignee.name');
+        
+        //make sure unassigned are on top
+        $unassigned = $tickets[''];
+        unset($tickets['']);
+        $tickets->prepend($unassigned);
+        
         return $tickets;
     }
 
