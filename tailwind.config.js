@@ -14,6 +14,8 @@ export default {
           'unit-coral': '#ee7255',
           'soft-black': '#16191a',
           'unit-soft-black': '#16191a',
+          'sidebar': 'rgba(43, 46, 47, 0.4)',
+          'status-pending' : '#31989d',
       },
     },
   },
