@@ -1,5 +1,8 @@
 @extends('layout')
 
 @section('content')
-    <livewire:list-tickets>
+    <div class="flex flex-col gap-10">
+        <livewire:widgetMyTickets>
+        <livewire:list-tickets>
+    </div>
 @stop
