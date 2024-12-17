@@ -14,14 +14,18 @@
      
     </head>
     <body class="bg-unit-soft-black text-white  ">
-        <div class="min-h-screen flex ">
+        <div class=" flex">
+        
             @auth()
-                <div class="basis-80 bg-[#2b2e2f]  p-10">
+                <div class="basis-80 bg-sidebar min-h-screen pt-5 p-10">
                     @include('navigation')
                 </div>
             @endauth
-            <div class="basis-auto grow p-6">
-                @yield('content')
+            <div class="basis-auto grow">
+                @include('navigation_top')
+                <div class="p-6">
+                    @yield('content')
+                </div>
             </div>
         </div>
         
