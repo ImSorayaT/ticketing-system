@@ -4,15 +4,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth', 'isLoggedIn')->group(function () {
     Route::get('/', function () {
-        return view('homepage');
+        return view('page.homepage');
     })->name('tickets');
 
     Route::get('/ticket/{id}', function ($id) {
-        return view('singleTicket', compact("id"));
+        return view('page.singleTicket', compact("id"));
     });
 
     Route::get('/assignee/{assigneeid}', function ($assigneeid) {
-        return view('ticketsByAssignee', compact("assigneeid"));
+        return view('page.ticketsByAssignee', compact("assigneeid"));
     });
 });
 
