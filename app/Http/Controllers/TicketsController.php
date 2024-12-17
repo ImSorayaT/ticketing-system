@@ -43,7 +43,7 @@ class TicketsController extends Controller
     public static function showList()
     {
 
-        $tickets = Tickets::with(['getRequester', 'getAssignee'])->get();
+        $tickets = Tickets::with(['getRequester', 'getAssignee'])->get()->groupBy('getAssignee.name');
         return $tickets;
     }
 

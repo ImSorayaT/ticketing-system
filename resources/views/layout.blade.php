@@ -23,7 +23,7 @@
             @endauth
             <div class="basis-auto grow">
                 @include('navigation_top')
-                <div class="p-6">
+                <div class="py-12 px-8">
                     @yield('content')
                 </div>
             </div>

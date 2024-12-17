@@ -17,7 +17,7 @@ class ListTicketsByAssignee extends Component
 
     public function render()
     {
-        $tickets = Tickets::with(['getRequester', 'getAssignee'])->where('assignee', $this->assigneeId)->get();
+        $tickets = Tickets::with(['getRequester', 'getAssignee'])->where('assignee', $this->assigneeId)->where('status', '<>', 'closed')->get()->groupBy('status');
         return view('livewire.list-tickets')->with(['tickets' => $tickets]);
     }
 }
