@@ -12,7 +12,7 @@ Route::middleware('auth', 'isLoggedIn')->group(function () {
     });
 
     Route::get('/assignee/{assigneeid}', function ($assigneeid) {
-        return view('page.ticketsByAssignee', compact("assigneeid"));
+        return view('page.listTicketsByAssignee', compact("assigneeid"));
     });
 });
 
