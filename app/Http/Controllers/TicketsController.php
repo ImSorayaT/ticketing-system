@@ -42,15 +42,7 @@ class TicketsController extends Controller
      */
     public static function showList()
     {
-
-        $tickets = Tickets::with(['getRequester', 'getAssignee'])->get()->groupBy('getAssignee.name');
-        
-        //make sure unassigned are on top
-        $unassigned = $tickets[''];
-        unset($tickets['']);
-        $tickets->prepend($unassigned);
-        
-        return $tickets;
+        //
     }
 
     public static function addTicketFromEmail(Request $request){
