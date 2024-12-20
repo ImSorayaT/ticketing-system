@@ -17,7 +17,7 @@
         <div class=" flex">
         
             @auth()
-                <div class="basis-80 bg-sidebar min-h-screen pt-5 p-10">
+                <div class="basis-80 grow-0 shrink-0  bg-sidebar min-h-screen pt-5 p-10">
                     @include('navigation')
                 </div>
             @endauth
