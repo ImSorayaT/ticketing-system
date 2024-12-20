@@ -16,9 +16,12 @@ class ListTickets extends Component
         $tickets = Tickets::with(['getRequester', 'getAssignee'])->get()->groupBy($this->grouped);
         
         //make sure unassigned are on top
-        $unassigned = $tickets[''];
-        unset($tickets['']);
-        $tickets->prepend($unassigned);
+        if(isset($tickets[''])){
+            $unassigned = $tickets[''];
+            unset($tickets['']);
+            $tickets->prepend($unassigned);
+    
+        }
 
         return view('livewire.list-tickets')->with(['tickets' => $tickets, 'grouped' => $this->grouped]);
     }
