@@ -1,5 +1,5 @@
 <div>
-    <form class="mt-9" wire:submit="createComment">
+    <form class="mt-9 pb-20" wire:submit="createComment">
 
         <div>
             <script src="https://cdn.tiny.cloud/1/2t2mluodhq5i93u2z4ajgg1983v43yecj0jp8apgzv7udt7x/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
@@ -36,7 +36,7 @@
                 <textarea id="editor"  wire:model="content"></textarea>
             </div>
             <div>
-                <button type="submit"   >Submit</button>
+                <button type="submit" class="bg-unit-coral block p-3 py-2 float-right mb-4 mt-8 block rounded-xl text-white cursor-pointer"  >Send Message</button>
             </div>
            
         </div>
